@@ -6,11 +6,8 @@ INCLUDELIB user32.lib
 .data
 .code
 main PROC
-    call readint
-    call writebin
-    call crlf
-    not eax
-    call writebin
+    mov eax, 3170
+    call writeint
 exit
 main ENDP
 
