@@ -15,7 +15,7 @@ main PROC
         mov [esi] ,  eax
         add esi , 4
         loop mainloop
-    mov ecx , 10
+    mov ecx , 11
     mov esi , OFFSET array
     writeloop:
         mov eax ,  [esi]

@@ -1,5 +1,5 @@
 #!/bin/sh
-cp src/$1.asm lib 
+cp "$2$1.asm" lib 
 cd lib 
 wine aml.exe /c /Zd /coff $1.asm 
 wine alink.exe /SUBSYSTEM:CONSOLE $1.obj 
