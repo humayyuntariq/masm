@@ -13,7 +13,8 @@ main PROC
     sub ecx, 1
     mov esi, 0
     L1:
-        mov eax, aname[ebx + esi] ; get character
+        ; mov eax, aname[ebx + esi] ; get character
+        mov eax , aname
         push  eax
         call writechar
         inc   esi

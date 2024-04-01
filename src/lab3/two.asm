@@ -12,7 +12,7 @@ INCLUDELIB user32.lib
 .code
 main PROC
    
-    mov eax, blue + (white * 16)
+    mov eax, blue + (white * 16) ; blue = text color & white = bg-color
     call SetTextColor
 
     call WaitMsg
