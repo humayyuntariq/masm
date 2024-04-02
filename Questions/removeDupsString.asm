@@ -9,29 +9,34 @@ INCLUDELIB user32.lib
 main PROC
     call inputString
 
-    mov ecx , eax
-    mov sizea , eax
+    mov ecx , sizea
     mov esi , offset string
     myloop:
-        mov al, BYTE PTR [esi]
-        ; call WriteChar
-        mov edi , offset string
-        mov ebx , ecx
-        mov ecx , sizea
+    push ecx
+    push esi
+        mov al, [esi]
             sloop:
-                cmp  ecx , ebx
-                je break
-                    cmp al, BYTE PTR [edi]
-                    je  delete
-                    jne break
-                    delete:
-                    mov al,   'x'
-                    mov [edi], al
-                break:
-                    add edi, 1
+                    inc esi
+                cmp al, [esi]
+                je remove
+                jmp move_next
+
+                 remove:
+                push ecx
+                 mov edi, esi
+                inside_loop:
+                    mov bl, [esi+1]
+                    mov [esi], bl
+                    inc esi
+                loop inside_loop
+                pop ecx
+                 mov esi, edi
+                 move_next:
+                
             loop sloop
-        mov ecx , ebx
-        add esi , 1
+    pop esi
+    inc esi
+    pop ecx
     loop myloop
 
     mov ecx , sizea
@@ -49,6 +54,7 @@ inputString PROC
     mov  edx, offset string
     mov  ecx, sizeof string
     call ReadString
+    mov sizea, eax
 ret
 inputString ENDP
 
