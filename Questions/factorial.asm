@@ -9,6 +9,7 @@ INCLUDELIB user32.lib
 main PROC
     call readInt
     mov ecx , eax
+    dec ecx
     myloop:
         mul  ecx
     loop myloop
