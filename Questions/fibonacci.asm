@@ -9,7 +9,7 @@ INCLUDELIB user32.lib
 main PROC
     call readInt
     mov ecx , eax
-    mov ebx , 1 ;first no
+    mov ebx , 0 ;first no
     mov edx , 1 ;second no
     myloop:
         mov eax , ebx 
